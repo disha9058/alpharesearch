@@ -4,7 +4,7 @@
 
 import { useState, useEffect, useRef } from "react";
 
-const API_BASE = "http://localhost:8000";
+const API_BASE = "https://alpharesearch.onrender.com";
 
 // ── Supported companies (matches backend) ─────────────────────
 const COMPANIES = [
