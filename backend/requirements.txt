@@ -12,6 +12,6 @@ yfinance==0.2.40
 requests==2.31.0
 pypdf==4.0.0
 supabase==2.4.0
-numpy==1.26.0
+numpy>=1.26.4
 python-multipart==0.0.9
 tiktoken==0.7.0
