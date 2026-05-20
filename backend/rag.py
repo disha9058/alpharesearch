@@ -17,12 +17,12 @@ import os
 import numpy as np
 from dotenv import load_dotenv
 from groq import Groq
-from sentence_transformers import SentenceTransformer
+from fastembed import TextEmbedding
 
 load_dotenv()
 
 client  = Groq(api_key=os.getenv("GROQ_API_KEY"))
-embedder = SentenceTransformer("all-MiniLM-L6-v2")
+embedder = TextEmbedding(model_name="BAAI/bge-small-en-v1.5")
 MODEL   = "llama-3.3-70b-versatile"
 
 
@@ -81,7 +81,8 @@ def chunk_text(text: str, chunk_size: int = 80, overlap: int = 15) -> list[str]:
 
 def embed(text: str) -> np.ndarray:
     """Convert text to a vector using local sentence-transformers (free, no API)."""
-    return embedder.encode(text)
+    return list(embedder.embed([text]))[0]
+
 
 
 def cosine_similarity(a: np.ndarray, b: np.ndarray) -> float:

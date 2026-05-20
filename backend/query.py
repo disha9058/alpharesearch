@@ -21,14 +21,15 @@ MAKE SURE:
 
 import os
 from dotenv import load_dotenv
-from sentence_transformers import SentenceTransformer
+from fastembed import TextEmbedding
+
 from pinecone import Pinecone
 from groq import Groq
 
 load_dotenv()
 
 # ── Setup ──────────────────────────────────────────────────────
-embedder   = SentenceTransformer("all-MiniLM-L6-v2")
+embedder = TextEmbedding(model_name="BAAI/bge-small-en-v1.5")
 pc         = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
 index      = pc.Index("alpharesearch")
 groq_client = Groq(api_key=os.getenv("GROQ_API_KEY"))

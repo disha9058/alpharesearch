@@ -14,16 +14,17 @@ NOTE: First run downloads ~90MB model. Wait for it — it's one time only.
 """
 
 import numpy as np
-from sentence_transformers import SentenceTransformer
+from fastembed import TextEmbedding
 
 print("Loading embedding model... (first run: ~90MB download, be patient)")
-model = SentenceTransformer("all-MiniLM-L6-v2")
+embedder = TextEmbedding(model_name="BAAI/bge-small-en-v1.5")
+
 print("✅ Model loaded!\n")
 
 
 def embed(text: str) -> np.ndarray:
     """Convert any text into a vector of 384 numbers."""
-    return model.encode(text)
+    return list(embedder.embed([text]))[0]
 
 
 def similarity(vec_a: np.ndarray, vec_b: np.ndarray) -> float:

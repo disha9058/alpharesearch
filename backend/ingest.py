@@ -23,13 +23,14 @@ import os
 import time
 from dotenv import load_dotenv
 from pypdf import PdfReader
-from sentence_transformers import SentenceTransformer
+from fastembed import TextEmbedding
+
 from pinecone import Pinecone, ServerlessSpec
 
 load_dotenv()
 
 # ── Setup ──────────────────────────────────────────────────────
-embedder   = SentenceTransformer("all-MiniLM-L6-v2")
+embedder = TextEmbedding(model_name="BAAI/bge-small-en-v1.5")
 pc         = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
 
 INDEX_NAME = "alpharesearch"   # your Pinecone index name
@@ -134,7 +135,7 @@ def upsert_chunks(index, chunks: list[str], company: str = "infosys"):
         batch = chunks[batch_start: batch_start + batch_size]
 
         # Embed the whole batch at once (faster than one-by-one)
-        embeddings = embedder.encode(batch, show_progress_bar=False)
+        embeddings = list(embedder.embed(batch))
 
         # Format for Pinecone: list of (id, vector, metadata) tuples
         vectors = [

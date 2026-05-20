@@ -7,7 +7,7 @@ langchain
 langchain-core
 langchain-openai
 langgraph
-sentence-transformers
+fastembed
 pinecone-client
 yfinance
 requests
