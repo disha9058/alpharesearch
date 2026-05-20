@@ -326,7 +326,7 @@ export default function App() {
             borderRadius: 12, padding: 16, marginBottom: 24,
           }}>
             <p style={{ color: "#ef4444", margin: 0, fontSize: 13 }}>
-              ❌ Research failed. Make sure your backend is running at localhost:8000.
+               ❌ Research failed. The AI agents are rate limited — please wait 60 seconds and try again.
             </p>
           </div>
         )}
