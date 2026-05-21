@@ -25,7 +25,7 @@ load_dotenv()
 
 groq_client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 NEWS_API_KEY = os.getenv("NEWS_API_KEY")
-MODEL = "llama-3.3-70b-versatile"
+MODEL = "llama-3.1-8b-instant"
 
 
 # ── Step 1: Fetch news articles ───────────────────────────────

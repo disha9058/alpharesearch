@@ -33,7 +33,7 @@ embedder = TextEmbedding(model_name="BAAI/bge-small-en-v1.5")
 pc         = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
 index      = pc.Index("alpharesearch")
 groq_client = Groq(api_key=os.getenv("GROQ_API_KEY"))
-MODEL      = "llama-3.3-70b-versatile"
+MODEL      = "llama-3.1-8b-instant"
 
 
 # ── Retrieval ─────────────────────────────────────────────────

@@ -23,7 +23,7 @@ load_dotenv()
 
 client  = Groq(api_key=os.getenv("GROQ_API_KEY"))
 embedder = TextEmbedding(model_name="BAAI/bge-small-en-v1.5")
-MODEL   = "llama-3.3-70b-versatile"
+MODEL   = "llama-3.1-8b-instant"
 
 
 # ─────────────────────────────────────────────────────────────
