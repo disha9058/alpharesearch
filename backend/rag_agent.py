@@ -32,7 +32,7 @@ MODEL       = "llama-3.1-8b-instant"
 
 def retrieve_from_annual_report(question: str, company: str, top_k: int = 4) -> list[dict]:
     """Search Pinecone for chunks relevant to the question."""
-    query_vec = embedder.encode(question).tolist()
+    query_vec = list(embedder.embed([question]))[0].tolist()
 
     results = index.query(
         vector=query_vec,

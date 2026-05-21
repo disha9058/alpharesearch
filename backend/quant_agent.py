@@ -28,7 +28,7 @@ load_dotenv()
 TICKER_MAP = {
 
     # Indian IT / Placement Companies
-    "infosys":        "INFY.NS",
+    "infosys":        "INFY",
     "tcs":            "TCS.NS",
     "wipro":          "WIPRO.NS",
     "hcl tech":       "HCLTECH.NS",

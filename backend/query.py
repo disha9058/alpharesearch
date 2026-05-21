@@ -45,10 +45,9 @@ def retrieve(question: str, company: str = "infosys", top_k: int = 4) -> list[di
     We filter by company so that when we later add TCS, Reliance etc.,
     a question about Infosys only retrieves Infosys chunks.
     """
-    query_vector = embedder.encode(question).tolist()
-
+    query_vec = list(embedder.embed([question]))[0].tolist()
     results = index.query(
-        vector=query_vector,
+        vector=query_vec,
         top_k=top_k,
         filter={"company": company},   # only get this company's chunks
         include_metadata=True           # include the original text
