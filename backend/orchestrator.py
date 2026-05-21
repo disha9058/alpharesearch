@@ -116,8 +116,11 @@ def synthesis_node(state: ResearchState) -> dict:
     """Node 5: Synthesis Agent — the final step."""
     print("\n[5/5] 🧠 Synthesis Agent writing research brief...")
     
-    import time
-    time.sleep(10)  # wait 10 seconds to reset Groq token window
+    # DELETE these two lines:
+    # import time
+    # time.sleep(10)
+    
+    s = state["sentiment"]  # keep everything from here# wait 10 seconds to reset Groq token window
     
     s = state["sentiment"]
     q = state["quant"]
