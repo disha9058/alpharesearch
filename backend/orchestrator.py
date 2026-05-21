@@ -82,19 +82,19 @@ def sentiment_node(state: ResearchState) -> dict:
     print(f"      Score: {result['score']:+.2f} ({result['label']})")
     return {"sentiment": result}
 
-
 def quant_node(state: ResearchState) -> dict:
-    """Node 2: Run quant agent, store result in state."""
-    print("\n[2/5]  Quant Agent running...")
+    import time
+    time.sleep(3)
+    print("\n[2/5] 📈 Quant Agent running...")
     result = run_quant_agent(state["company"])
     print(f"      Price: {result.get('currency')} {result.get('current_price')}")
     print(f"      P/E: {result.get('pe_ratio')} | Growth: {result.get('revenue_growth')}%")
     return {"quant": result}
 
-
 def rag_node(state: ResearchState) -> dict:
-    """Node 3: Run RAG agent against annual report."""
-    print("\n[3/5] RAG Agent running...")
+    import time
+    time.sleep(3)
+    print("\n[3/5] 📚 RAG Agent running...")
     result = run_rag_agent(state["question"], state["company"])
     print(f"      Confidence: {result['confidence']} | Sources: {len(result['sources'])} chunks")
     return {"rag": result}
@@ -113,15 +113,15 @@ def risk_node(state: ResearchState) -> dict:
 
 
 def synthesis_node(state: ResearchState) -> dict:
-    """
-    Node 5: Synthesis Agent — the final step.
-    Reads ALL previous agent outputs from state,
-    combines them into one coherent research brief.
-    """
+    """Node 5: Synthesis Agent — the final step."""
     print("\n[5/5] 🧠 Synthesis Agent writing research brief...")
-
+    
+    import time
+    time.sleep(10)  # wait 10 seconds to reset Groq token window
+    
     s = state["sentiment"]
     q = state["quant"]
+    # ... rest stays exactly the same
     r = state["rag"]
     k = state["risk"]
 
