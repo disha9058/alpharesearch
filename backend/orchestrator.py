@@ -41,7 +41,7 @@ from risk_agent      import run_risk_agent
 load_dotenv()
 
 groq_client = Groq(api_key=os.getenv("GROQ_API_KEY"))
-MODEL       = "llama-3.1-8b-instant"
+MODEL       = "llama-3.3-70b-versatile"
 
 
 # ─────────────────────────────────────────────────────────────
