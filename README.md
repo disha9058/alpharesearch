@@ -1,4 +1,5 @@
 AlphaResearch — Multi-Agent Financial Research System
+Video:https://www.loom.com/share/c452e03d9aea4fb3af352b83f4662ff6
 
 Live demo: https://researchalpha.vercel.app/
 
